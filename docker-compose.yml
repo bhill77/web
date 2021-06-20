@@ -1,5 +1,17 @@
 version: "3.9"
 services:
+  db:
+    image: mariadb:10.5
+    restart: always
+    ports:
+      - 33060:3306
+    volumes:
+      - ./db.sql:/docker-entrypoint-initdb.d/db.sql:ro
+    environment:
+      MARIADB_ROOT_PASSWORD: "root"
+      MARIADB_DATABASE: "web"
+  redis:
+    image: redis
   web:
     build: .
     ports:
@@ -10,16 +22,3 @@ services:
       - db
       - redis
     command: go run main.go
-  redis:
-    image: redis
-  db:
-    image: mariadb:10.5
-    restart: always
-    ports:
-    - 33060:3306
-    volumes:
-    - ./db.sql:/docker-entrypoint-initdb.d/db.sql:ro
-    environment:
-      MARIADB_ROOT_PASSWORD: "root"
-      MARIADB_DATABASE: "web"
-
