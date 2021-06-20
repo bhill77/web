@@ -30,10 +30,10 @@ func dbConnect() *gorm.DB {
 	dsn := fmt.Sprintf(
 		"%s:%s@tcp(%s:%d)/%s?charset=utf8&parseTime=True&loc=Local",
 		"root",
-		"",
-		"localhost",
+		"root",
+		"db",
 		3306,
-		"news")
+		"web")
 
 	connection, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 	if err != nil {

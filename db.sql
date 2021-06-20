@@ -7,4 +7,4 @@ CREATE TABLE if not exists `articles` (
     PRIMARY KEY (`id`),
     FULLTEXT KEY `author` (`author`),
     FULLTEXT KEY `title` (`title`,`body`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8mb4;

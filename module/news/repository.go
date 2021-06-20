@@ -21,7 +21,7 @@ func (r *Repository) AddArticle(article news.Article) (news.Article, error) {
 }
 
 func (r *Repository) GetAll(filter map[string]string) []news.Article {
-	db := r.db.Debug()
+	db := r.db
 	var list []news.Article
 
 	if val, ok := filter["author"]; ok {
